@@ -74,3 +74,15 @@ Dark mode for the webpage;
 
 Language dropdown selector;
 
+
+
+
+
+##### GitHub repo
+
+https://github.com/PG29Vinicius/A2-Minesweeper-Box-Model
+
+
+
+©Vinicius Januzzi - Vancouver Film School - 2025/2026 - All rights reserved
+
