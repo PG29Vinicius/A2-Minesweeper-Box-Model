@@ -1,0 +1,200 @@
+/* Selector for the whole webpage */
+* {
+    box-sizing: border-box;
+}
+
+/* Setting the font and gradient color for the body */
+body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    background: linear-gradient(180deg, #D9C8B4 0%, #fff 100%);
+    color: #8E7756;
+    min-height: 100vh;
+}
+
+/* Header */
+.site-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 12px 20px;
+    background: #8e775651;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    gap: 8px;
+    position: relative;
+}
+    
+/* Top navigation links and buttons */
+.top-nav {
+    grid-column: 5;
+    display: flex;
+    gap: 12px;
+}
+
+    /* Navigation buttons */
+    .top-nav a, .top-nav .btn {
+        margin-left: 12px;
+        color: #593E1C;
+        text-decoration: none;
+    }
+
+/* Minesweeper logo, currently only text. TODO: change for an actual image */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+/* All buttons style */
+.btn {
+    background: #8C7961;
+    border: 2px solid #8E7756;
+    color: white;
+    padding: 8px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+    
+    /* Button hover effect */
+    .btn:hover {
+        background: #A89078;
+        border-color: #A89078;
+    }
+
+/* Layout grid: left - center - right */
+.layout {
+    display: grid;
+    grid-template-columns: 220px 1fr 260px;
+    gap: 18px;
+    padding: 18px;
+    align-items: start;
+}
+
+/* Sidebar with mode card */
+.sidebar {
+    background: #8e775651;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.03);
+    grid-column: 1;
+}
+
+/* Sidebar with the rules */
+.sidebar-bottom {
+    background: #8e775651;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.03);
+    grid-column: 3;
+}
+
+/* Center column of the grid */
+.center {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    padding: 15%;
+}
+
+/* Difficulty selector header */
+.difficulty-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Difficulty selector buttons */
+.difficulty {
+    background: #8C7961;
+    border: 2px solid #8E7756;
+    color: white;
+    padding: 8px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .difficulty:hover {
+        background: #A89078;
+        border-color: #A89078;
+    }
+
+    /* Changes style when the button is selected */
+    .difficulty:active {
+        background: #eddc24;
+        border-color: #fff;
+    }
+
+/* Game header: contains mine counter and timer */
+.game-header {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: #8e775651;
+    border-radius: 8px;
+}
+
+/* Board that uses Grid with rows and cols to control size */
+.board {
+    --cols: 9;
+    --rows: 9;
+    --cell-size: 28px;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), var(--cell-size));
+    grid-auto-rows: var(--cell-size);
+    gap: 4px;
+    padding: 12px;
+    background: #8e775651;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.04);
+    overflow: auto;
+    max-width: calc(var(--cols) * (var(--cell-size) + 4px) + 24px);
+}
+
+/* Board cell manually made, to know how the board will look when implemented with JS */
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background: linear-gradient(180deg,#bfc8d6,#9aa8bf);
+    border-radius: 3px;
+    box-shadow: inset -2px -2px 0 rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 14px;
+    color: #593E1C;
+}
+
+/* Responsiveness for resolution changing, for smaller or bigger screens */
+@media (max-width: 980px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar.right, .sidebar.left {
+        order: 2;
+    }
+
+    .center {
+        order: 1;
+        width: 100%;
+    }
+
+    .board {
+        max-width: 100%;
+        transform-origin: top left;
+    }
+}

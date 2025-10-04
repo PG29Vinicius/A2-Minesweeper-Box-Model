@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<!-- Meta data information for the webpage -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Awesome Minesweeper</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Header section with logo and navigation -->
+    <header class="site-header">
+        <div class="logo">Minesweeper</div>
+        <nav class="top-nav">
+            <a class="btn" href="#">New Game</a>
+            <a class="btn" href="#">Leaderboard</a>
+        </nav>
+    </header>
+    <!-- Center part of the webpage -->
+    <main class="layout">
+        <!-- Mode card with settings -->
+        <aside class="sidebar">
+            <h3>Mode</h3>
+            <button class="btn">Standard</button>
+            <h3>Settings</h3>
+            <label>Rows <input type="number" value="16" min="5" /></label>
+            <label>Columns <input type="number" value="30" min="5" /></label>
+            <label>Mines <input type="number" value="99" min="1" /></label>
+            <button class="btn primary">Restart</button>
+        </aside>
+        <!-- Game board -->
+        <section class="center">
+            <header class="difficulty-selector">
+                <button class="difficulty">Easy</button>
+                <button class="difficulty">Medium</button>
+                <button class="difficulty">Hard</button>
+            </header>
+            <!-- Header of the game, with timer and mine counter -->
+            <div class="game-header">
+                <div class="status"></div>
+                <div class="timer">01:00</div>
+                <div class="mines-left">M: 099</div>
+            </div>
+
+            <!-- Board of the game using variables to set the board size -->
+            <div class="board" style="--rows:16; --cols:30; --cell-size:28px;" aria-label="Game board">
+                <!-- Temporary cells just to visualize how the board will be -->
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div>
+        </section>
+
+        <!-- Right column with stats -->
+        <aside class="sidebar">
+            <h3>Statistics</h3>
+            <p>Games: --</p>
+            <p>Wins: --</p>
+
+        </aside>
+    </main>
+
+    <!-- Rules above the webpage footer -->
+    <aside class="sidebar-bottom">
+        <h3>Rules</h3>
+        <p>
+            Minesweeper is a game where mines are hidden in a grid of squares. Safe squares have numbers telling you how many mines touch the square. You can use the number clues to solve the game by opening all of the safe squares. If you click on a mine you lose the game!
+
+            Windows Minesweeper always makes the first click safe. You open squares with the left mouse button and put flags on mines with the right mouse button. Pressing the right mouse button again changes your flag into a questionmark. When you open a square that does not touch any mines, it will be empty and the adjacent squares will automatically open in all directions until reaching squares that contain numbers. A common strategy for starting games is to randomly click until you get a big opening with lots of numbers.
+
+            If you flag all of the mines touching a number, chording on the number opens the remaining squares. Chording is when you press both mouse buttons at the same time. This can save you a lot of work! However, if you place the correct number of flags on the wrong squares, chording will explode the mines.
+        </p>
+    </aside>
+
+    <!-- Footer of the webpage -->
+    <footer class="site-footer">
+        <small>&copy Vinicius Januzzi - Vancouver Film School - 2025/2026</small>
+    </footer>
+</body>
+</html>
